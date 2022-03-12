@@ -3,8 +3,8 @@ const mail = require('@sendgrid/mail')
 
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export default (req: Request, res: Response) => {
-  const body = JSON.parse(req.body)
+export default async (req: Request, res: Response) => {
+  const body = await JSON.parse(req.body)
 
   const message = `
     Name: ${body.fullname}\r\n
@@ -20,7 +20,7 @@ export default (req: Request, res: Response) => {
     html: message.replace(/\r\n/g, '<br>'),
   }
 
-  mail.send(data)
+  await mail.send(data)
 
   res.status(200).json({ status: 'OK' })
 }
