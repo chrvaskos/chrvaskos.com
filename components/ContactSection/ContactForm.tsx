@@ -20,7 +20,7 @@ const ContactForm = (): JSX.Element => {
       if (!field.name) return
       formData[field.name] = field.value
     })
-    fetch('api/mail', {
+    await fetch('api/mail', {
       method: 'post',
       body: JSON.stringify(formData),
     })
