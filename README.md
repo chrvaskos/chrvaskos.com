@@ -1,10 +1,11 @@
 ## [chrvaskos.com](https://chrvaskos.com)
 
-My personal website/blog built with some of my favorite technologies where I can showcase my work and write articles about anything new I learn & want to share with the tech community. I highly encourage anyone interested in finding out more about me or contacting me to visit it.
+My personal website / blog built with some of my favorite technologies where I can showcase my work and write articles about anything new I learn & want to share with the tech community. I highly encourage anyone interested in finding out more about me or contacting me to visit it.
 
 ## The Stack
 
 Built with:
+
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [twin.macro](https://github.com/ben-rogerson/twin.macro)
