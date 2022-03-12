@@ -20,7 +20,7 @@ const BusinessCard: NextPage = () => {
           </BusinessCardImage>
           <div>
             <h1>Christoforidis Vasilis</h1>
-            <h2>Web developer</h2>
+            <h2>BSc Computer Science, Aristotle University of Thessaloniki</h2>
           </div>
         </BusinessCardInfo>
         <BusinessCardSocials>
