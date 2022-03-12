@@ -1,0 +1,146 @@
+---
+title: "How I've built my personal website using Next.js, TypeScript, CSS-in-JS with Tailwind, MDX, Framer Motion & more (Work In Progress)"
+date: '2021-11-10'
+edit: '2022-02-24'
+cover_image: '/images/posts/portfoliobuilt.webp'
+---
+
+For the better part of this year, I've committed into building a personal website where I can showcase my latest work and write articles about anything new I learn and want to share with the tech community. To get things even more exciting, I've chosen some of my favorite technologies (at the time of writing this!) to develop it. This helped me stay as consistent and focused as I physically & mentally could throughout this journey of learning, coding, improving and learning again. This post will be a deep dive on everything I've learned & implemented on my personal website.
+
+## Table of Contents
+
+1.  [Overview](#overview)
+2.  [Next.js](#nextjs)
+3.  [TypeScript](#typescript)
+4.  [Styling](#styling)
+5.  [Animation](#animation)
+6.  [Blog](#blog)
+7.  [More Awesome Packages](#more-awesome-packages)
+8.  [Deployment](#deployment)
+9.  [Inspirations and Thanks](#inspirations-and-thanks)
+
+## Overview
+
+This website is a [Next.js](https://nextjs.org/) application. You can view the [source](https://github.com/chrvaskos/chrvaskos.com) on Github and everyone is welcome to be inspired by it — the same way I have been inspired by a number of incredibly talented people that I'll be sure to credit and thank below.
+
+With Next, you have a few different options when it comes to page rendering: you can choose to do it "on-demand" (server-side rendering) or ahead of time (static site generation). For example, I've opted to build all the blog posts ahead of time, when the site is generated.
+
+I've also decided to use [TypeScript](https://www.typescriptlang.org/), which is essentialy JavaScript with syntax for types. This definitely helped me document my code as I added more features and indirectly sped up my productivity during development as it decreased the amount of bugs and potentially wrong types that would have otherwise gone unnoticed for a while.
+
+This site is deployed on [Vercel](https://vercel.com/). This was my initial choice because they're the company behind Next.js and I figured it would be well-optimized.
+
+When it comes to the styling of this site, I was so in-between two choices. The first one being CSS-in-JS, such as [styled-components](https://styled-components.com/), and the second being [Tailwind CSS](https://tailwindcss.com/) — a utility-first CSS framework with beautiful out-of-the-box design and amazing customization. Being so torn between the two, I've started researching and eventually stumbled upon an awesome package called [twin.macro](https://github.com/ben-rogerson/twin.macro). Twin blends the magic of Tailwind with the flexibility of CSS-in-JS (emotion, styled-components, stitches and goober) at build time. This was exactly what I wanted and I've decided to use it for the styling as it allowed me to combine both of my initial choices.
+
+For animation, I've used [Framer Motion](https://www.framer.com/motion/), a production-ready motion library for React. I've chosen this over others, because of two main reasons. It has a simple declarative syntax which is easy to read and maintain and it, in my opinion, synergizes even better with CSS-in-JS.
+
+Last but not least, I've used [MDX](https://mdxjs.com/) for my blog posts. MDX is a superset of markdown that lets you write JSX directly in your markdown files. Next.js supports MDX through a number of different means such as the [@next/mdx](https://nextjs.org/docs/advanced-features/using-mdx#nextmdx) package which I've personally used.
+
+I've also used a number of different packages — all of them being awesome and helpful in their own unique way. I'll try to dive into each one of them later in this blog post, so be sure to continue reading or, if you can't find something specific I haven't written about yet, come back in a later date as I'll be continuously be updating this post (Tip: Check the 'Last updated' date at the top!).
+
+And by the way, here's the project folder structure I've decided to use.
+
+```plaintext:project-structure
+.
+├── assets
+│   ├── lottie
+│   └── svg
+├── components
+│   ├── AboutSection
+│   ├── BlogSection
+│   ├── ContactSection
+│   ├── Head
+│   └── ProjectsSection
+├── context
+├── hooks
+├── pages
+│   ├── api
+│   └── blog
+├── posts
+├── public
+│   ├── favicons
+│   └── images
+│       ├── posts
+│       └── projects
+├── styles
+└── utils
+```
+
+## Next.js
+
+Come back in a later date!
+
+You can have a look at my `next.config.js` file for now!
+
+```typescript:next.config.js
+/** @type {import('next').NextConfig} */
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx$/,
+  options: {
+    remarkPlugins: ['remark-gfm'],
+    rehypePlugins: [
+      'rehype-slug',
+      'rehype-code-titles',
+      'rehype-autolink-headings',
+      'rehype-highlight',
+    ],
+  },
+})
+
+const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  reactStrictMode: 'strict',
+  webpack: (config, { dev, isServer }) => {
+    // Replace React with Preact only in client production build
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      })
+    }
+    return config
+  },
+}
+
+module.exports = withMDX(nextConfig)
+```
+
+## TypeScript
+
+Come back in a later date!
+
+## Styling
+
+Come back in a later date!
+
+## Animation
+
+Come back in a later date!
+
+## Blog
+
+Come back in a later date!
+
+## More Awesome Packages
+
+Come back in a later date!
+
+## Deployment
+
+Come back in a later date!
+
+## Inspirations and Thanks
+
+I've been heavily inspired by the following incredibly talented people and I really want to thank them for their contibution to the community.
+
+- [Lee Robinson](https://leerob.io/)
+- [François Best](https://francoisbest.com/)
+- [Josh W Comeau](https://www.joshwcomeau.com/)
+
+I'll try to list — and update consistently — some awesome YouTube channels below that helped me throughout this journey as well.
+
+- [Lee Robinson](https://www.youtube.com/user/MaStaleee)
+- [Jack Herrington](https://www.youtube.com/c/JackHerrington)
+- [Kevin Powell](https://www.youtube.com/kepowob)
