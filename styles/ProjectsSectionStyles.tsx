@@ -35,11 +35,11 @@ export const ProjectImageContainer = styled.div`
 `
 
 export const ProjectTagList = tw.ul`
-  absolute bottom-2 left-0 transform transition-transform
+  absolute flex w-full flex-wrap bottom-2 -left-2 md:left-0
 `
 
 export const ProjectTag = tw.li`
-  rounded inline-block py-1 px-2.5 bg-black/90 text-white dark:bg-gray-300 dark:text-[#121212] font-bold text-sm ml-4 first:ml-0
+  rounded inline-block py-1 px-2.5 bg-black/90 text-white dark:bg-gray-300 dark:text-[#121212] font-bold text-sm ml-2 mt-1 md:ml-4 md:first:ml-0 
 `
 
 export const ProjectInfo = styled.div`
